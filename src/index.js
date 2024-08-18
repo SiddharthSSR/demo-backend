@@ -2,8 +2,18 @@ import dotenv from "dotenv/config"
 import connectDB from "./db/index.js";
 
 
+import express from "express";
+const app = express()
 
 connectDB()
+
+app.get("/", (req, res) => {
+    res.send("Hello World")
+})
+
+app.listen(process.env.PORT, () => {
+    console.log(`App is listening on port ${process.env.PORT}`);
+})
 
 /*
 * This approach has all the functions and methods inside index.js
